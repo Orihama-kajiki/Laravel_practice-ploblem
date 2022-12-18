@@ -62,5 +62,6 @@ select {
   border-spacing: 0;
   text-align: center;
   width: 100%;
+  display: flex;
 }
 

@@ -4,18 +4,43 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use App\Http\Requests\TodoRequest;
 
 class TodoController extends Controller
 
 {
     public function index()
     {
-        return view('index');
+        $Todos = Todo::all();
+        return view('index', ['todos' => $Todos]);
     }
 
-    public function store() 
+    public function find()
     {
-
-        return redirect('index');
+    return view('find', ['input' => '']);
     }
+
+    public function search(Request $request)
+    {
+    $Todos = Todo::find($request->input);
+    $param = [
+    'todos' => $Todos,
+    'input' => $request->input
+    ];
+    return view('find', $param);
+    }
+
+    public function add()
+    {
+    return view('add');
+    }
+
+    public function create(TodoRequest $request)
+    {
+    $form = $request->all();
+    Todo::create($form);
+    return redirect('/');
+    }
+
+
 }
