@@ -15,7 +15,7 @@
       <div class="todo">
         <form action="/todos/create" method="post" class="form">
           @csrf
-          <input type="text" class="input_add" name="Content">
+          <input type="text" class="input_add" name="content">
           <input type="submit" class="btn_add" value="追加">
         </form>
         <table>
