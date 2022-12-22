@@ -18,6 +18,7 @@
           <input type="text" class="input_add" name="content">
           <input type="submit" class="btn_add" value="追加">
         </form>
+        @section('content')
         <table>
           <tbody>
             @csrf
@@ -27,8 +28,16 @@
               <th>更新</th>
               <th>削除</th>
             </tr>
+            @foreach ($todos as $todo)
+            <tr>
+              <td>{{$todo->timestamps}}</td>
+              <td><input type="text" {{$todo->content}} ></td>
+              <input type="submit" class="btn_update" value="更新">
+              <input type="submit" class="btn_delete" value="削除">
+            </tr>
+          @endforeach
           </tbody>
-        </table> 
+        </table>
       </div>
     </div>    
   </div>
