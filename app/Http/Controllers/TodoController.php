@@ -16,21 +16,6 @@ class TodoController extends Controller
         return view('index', ['todos' => $Todos]);
     }
 
-    public function find()
-    {
-    return view('find', ['input' => '']);
-    }
-
-    public function search(Request $request)
-    {
-    $Todos = Todo::find($request->input);
-    $param = [
-    'todos' => $Todos,
-    'input' => $request->input
-    ];
-    return view('find', $param);
-    }
-
     public function add()
     {
     return view('add');
@@ -44,5 +29,17 @@ class TodoController extends Controller
     return redirect('/');
     }
 
+    public function update(TodoRequest $request)
+    {
+    $form = $request->all();
+    Todo::where('content', $request->content)->update($form);
+    return redirect('/');
+    }
 
+    public function delete(TodoRequest $request)
+    {
+
+    $Todos->delete();
+    return redirect('/');
+    }
 }

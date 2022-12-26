@@ -57,11 +57,68 @@ select {
   outline: none;
 }
 
-.table{
+.input_update {
+  width: 90%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  appearance: none;
+  font-size: 14px;
+  outline: none;
+}
+
+.btn_update {
+  text-align: left;
+  border: 2px solid #fa9770;
+  font-size: 12px;
+  color: #fa9770;
+  background-color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+  outline: none;
+}
+.btn_update:hover {
+  color: #FFF;
+  background-color: #fa9770;
+}
+
+.btn_delete {
+  text-align: left;
+  border: 2px solid #71fadc;
+  font-size: 12px;
+  color: #71fadc;
+  background-color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+  outline: none;
+}
+.btn_delete:hover {
+  color: #FFF;
+  background-color:#71fadc;
+}
+
+table {
   border-collapse: collapse;
   border-spacing: 0;
   text-align: center;
   width: 100%;
-  display: flex;
 }
 
+th {
+  display: table-cell;
+}
+
+tr {
+  height: 50px;
+  display: table-row;
+}
+
+td {
+  display: table-cell;
+}
