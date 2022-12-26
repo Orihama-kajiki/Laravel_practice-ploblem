@@ -20,6 +20,7 @@
         </form>
         @section('content')
         <table>
+          
           <tbody>
             @csrf
             <tr>
@@ -31,9 +32,15 @@
             @foreach ($todos as $todo)
             <tr>
               <td>{{$todo->created_at}}</td>
-              <td><input type="text" class="input_update" value="{{$todo->content}}" ></td>
-              <td><button class="btn_update" value="">更新</button>
-              <td><button class="btn_delete" value="">削除</button>
+              <form>
+                <td><input type = "text" class="input_update" value="{{$todo->content}}" ></td>
+                <td><button type = "submit" class="btn_update" value="">更新</button></td>
+              </form>
+              <form action="/todos/delete" method="POST">
+                @section('content')
+                @csrf
+                <td><button type = "submit" class="btn_delete" >削除</button></td>
+              </form>
             </tr>
           @endforeach
           </tbody>
