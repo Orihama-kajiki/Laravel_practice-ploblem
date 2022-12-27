@@ -36,8 +36,8 @@
                 <td><input type = "text" class="input_update" value="{{$todo->content}}" ></td>
                 <td><button type = "submit" class="btn_update" value="">更新</button></td>
               </form>
-              <form action="/todos/delete" method="POST">
                 @section('content')
+              <form action="/todos/delete" method="POST">
                 @csrf
                 <td><button type = "submit" class="btn_delete" >削除</button></td>
               </form>

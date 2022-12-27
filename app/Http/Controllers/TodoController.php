@@ -38,8 +38,9 @@ class TodoController extends Controller
 
     public function delete(TodoRequest $request)
     {
-    $Todos = Todo::all();
-    $Todos->delete();
+    $Todos = Todo::find('id','content');
+    dd($Todos);
+    $Todos->delete('id','content');
     return redirect('/');
     }
 }
