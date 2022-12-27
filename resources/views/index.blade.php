@@ -34,12 +34,12 @@
               <td>{{$todo->created_at}}</td>
               <form>
                 <td><input type = "text" class="input_update" value="{{$todo->content}}" ></td>
-                <td><button type = "submit" class="btn_update" value="">更新</button></td>
+                <td><button type = "submit" class="btn_update" value="{{$todo->content}}">更新</button></td>
               </form>
                 @section('content')
               <form action="/todos/delete" method="POST">
                 @csrf
-                <td><button type = "submit" class="btn_delete" >削除</button></td>
+                <td><button type = "submit" class="btn_delete" value="{{$todo->content}}">削除</button></td>
               </form>
             </tr>
           @endforeach
