@@ -30,18 +30,17 @@
             @foreach ($todos as $todo)
             <tr>
               <td>{{$todo->created_at}}</td>
-              <form>
+              <input type="hidden" name="id" value="{{$todo->id}}">
+              <form action="/todos/update" method="POST">
                 @csrf
-                <input type="hidden" name="_token" value="{{$todo->content}}">
-                <td><input type="text" class="input_update" value="{{$todo->content}}" ></td>
-                <td><button type="submit" class="btn_update" value="{{$todo->content}}">更新</button></td>
+                <td><input type="text" name="id" class="input_update" value="{{$todo->content}}" ></td>
+                <td><button type="submit" class="btn_update" >更新</button></td>
               </form>
                 @section('content')
-                  @csrf
               <form action="/todos/delete" method="POST">
                   @csrf                
                 <td>
-                  <input type="hidden" name="_token" value="{{$todo->content}}">
+                  <input type="hidden" name="id" value="{{$todo->id}}">
                   <button type="submit" class="btn_delete" >削除</button>
                 </td>
               </form>

@@ -24,7 +24,15 @@ class TodoRequest extends FormRequest
     public function rules()
     {
         return [
-            
+        "id" => 'required|string',
+
         ];
     }
+
+    public function messages()
+{
+    return [
+        'id' => 'タスクを入力してください。',
+    ];
+}
 }
