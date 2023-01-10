@@ -28,16 +28,10 @@ class TodoController extends Controller
     return redirect('/');
     }
 
-    public function edit(TodoRequest $request)
-    {
-    $Todos = todo::find($request->id);
-    return view('update', ['form' => $Todos]);
-    }
-
     public function update(TodoRequest $request)
     {
     $form = $request->all();
-    Todo::find($request->id)->update($form);
+    Todo::where($request->content)->update($Todos);
     return redirect('/');
     }
 

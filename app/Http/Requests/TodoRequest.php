@@ -24,7 +24,7 @@ class TodoRequest extends FormRequest
     public function rules()
     {
         return [
-        "id" => 'required|string',
+        "content" => 'required|string',
 
         ];
     }
@@ -32,7 +32,7 @@ class TodoRequest extends FormRequest
     public function messages()
 {
     return [
-        'id' => 'タスクを入力してください。',
+        'content' => 'タスクを入力してください。',
     ];
 }
 }
