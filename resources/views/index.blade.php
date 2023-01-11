@@ -33,7 +33,7 @@
               <input type="hidden" name="id" value="{{$todo->id}}">
               <form action="/todos/update" method="POST">
                 @csrf
-                <td><input type="text" name ="update_id" class="input_update" value="{{$todo->content}}" ></td>
+                <td><input type="text" name ="content" class="input_update" value="{{$todo->content}}" ></td>
                 <td><button type="submit" class="btn_update" value="{{$todo->id}}">更新</button></td>
               </form>
                 @section('content')

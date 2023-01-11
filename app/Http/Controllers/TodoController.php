@@ -28,10 +28,17 @@ class TodoController extends Controller
     return redirect('/');
     }
 
+    public function edit(TodoRequest $request)
+    {
+    $author = Todo::find($request->id);
+    return view('edit', ['form' => $Todos]);
+    }
+
     public function update(TodoRequest $request)
     {
     $form = $request->all();
-    Todo::where($request->content)->update($Todos);
+    unset($form['_token']);
+    Todo::where($request->id)->update($form);
     return redirect('/');
     }
 
