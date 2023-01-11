@@ -31,14 +31,15 @@
             <tr>
               <td>{{$todo->created_at}}</td>
               <input type="hidden" name="id" value="{{$todo->id}}">
-              <form action="/todos/update" method="POST">
                 @csrf
+                <form action="/todos/update/{id?}" method="POST">
+                <input type="hidden" name="id" value="{{$todo->id}}">
                 <td><input type="text" name ="content" class="input_update" value="{{$todo->content}}" ></td>
                 <td><button type="submit" class="btn_update" value="{{$todo->id}}">更新</button></td>
               </form>
                 @section('content')
-              <form action="/todos/delete" method="POST">
-                  @csrf                
+              <form action="/todos/delete/{id?}" method="POST">
+                  @csrf
                 <td>
                   <input type="hidden" name="id" value="{{$todo->id}}">
                   <button type="submit" class="btn_delete" >削除</button>
