@@ -30,7 +30,7 @@ class TodoController extends Controller
 
     public function edit(TodoRequest $request)
     {
-    $author = Todo::find($request->id);
+    $Todos = Todo::find($request->id);
     return view('edit', ['form' => $Todos]);
     }
 
