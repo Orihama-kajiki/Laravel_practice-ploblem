@@ -12,6 +12,13 @@
   <div class="containar">
     <div class="card">
       <p class=title>Todo List</p>
+        @if (count($errors) > 0)
+        <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
+        @endforeach
+        </ul>
+        @endif
       <div class="todo">
         <form action="/todos/create" method="post" class="form">
           @csrf
@@ -30,7 +37,6 @@
             @foreach ($todos as $todo)
             <tr>
               <td>{{$todo->created_at}}</td>
-              <input type="hidden" name="id" value="{{$todo->id}}">
                 <form action="/todos/update/{id?}" method="POST">
                   @csrf
                 <input type="hidden" name="id" value="{{$todo->id}}">
