@@ -31,8 +31,8 @@
             <tr>
               <td>{{$todo->created_at}}</td>
               <input type="hidden" name="id" value="{{$todo->id}}">
-                @csrf
                 <form action="/todos/update/{id?}" method="POST">
+                  @csrf
                 <input type="hidden" name="id" value="{{$todo->id}}">
                 <td><input type="text" name ="content" class="input_update" value="{{$todo->content}}" ></td>
                 <td><button type="submit" class="btn_update" value="{{$todo->id}}">更新</button></td>
